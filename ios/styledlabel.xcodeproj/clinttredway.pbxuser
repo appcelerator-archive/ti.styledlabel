@@ -1,0 +1,95 @@
+// !$*UTF8*$!
+{
+	0867D690FE84028FC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeTarget = D2AAC07D0554694100DB518D /* styledlabel */;
+		addToTargets = (
+			D2AAC07D0554694100DB518D /* styledlabel */,
+		);
+		codeSenseManager = 7BCA755F13D5C0BA00970DC0 /* Code sense */;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					831,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 332775691;
+			PBXWorkspaceStateSaveDate = 332775691;
+		};
+		sourceControlManager = 7BCA755E13D5C0BA00970DC0 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	24416B8111C4CA220047AFDD /* Build & Test */ = {
+		activeExec = 0;
+	};
+	24DD6CF71134B3F500162E58 /* TiStyledlabelModule.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1593, 748}}";
+			sepNavSelRange = "{189, 0}";
+			sepNavVisRange = "{0, 244}";
+		};
+	};
+	24DD6CF81134B3F500162E58 /* TiStyledlabelModule.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1593, 1391}}";
+			sepNavSelRange = "{212, 0}";
+			sepNavVisRange = "{0, 1232}";
+		};
+	};
+	7BCA755E13D5C0BA00970DC0 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	7BCA755F13D5C0BA00970DC0 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	7BCA75F313D5F2D000970DC0 /* TiStyledlabelView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1593, 748}}";
+			sepNavSelRange = "{302, 0}";
+			sepNavVisRange = "{0, 355}";
+		};
+	};
+	7BCA75F413D5F2D000970DC0 /* TiStyledlabelView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1593, 748}}";
+			sepNavSelRange = "{1373, 0}";
+			sepNavVisRange = "{0, 1557}";
+		};
+	};
+	7BCA761313D6003900970DC0 /* TiStyledlabelViewProxy.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1593, 748}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 328}";
+		};
+	};
+	D2AAC07D0554694100DB518D /* styledlabel */ = {
+		activeExec = 0;
+	};
+}
