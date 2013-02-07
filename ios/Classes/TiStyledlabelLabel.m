@@ -112,11 +112,9 @@
             [((TiViewProxy*)[self proxy]) willEnqueue];
             [[((TiViewProxy*)[self proxy]) parent] willChangeSize];
             return NO;
+		} else if ([[url scheme] isEqualToString:@"about"]) {
+		 	 return YES;
         }
-    }
-    
-    if ([url host] == nil) {
-        return YES;
     }
     
     [self.proxy fireEvent:@"click" withObject:[[NSDictionary alloc] initWithObjectsAndKeys:
