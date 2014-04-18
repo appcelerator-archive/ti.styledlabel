@@ -5,16 +5,14 @@
 #
 import os, sys, glob, string
 import zipfile
-from datetime import date
 
 cwd = os.path.abspath(os.path.dirname(sys._getframe(0).f_code.co_filename))
-os.chdir(cwd)
 required_module_keys = ['name','version','moduleid','description','copyright','license','copyright','platform','minsdk']
 module_defaults = {
 	'description':'My module',
 	'author': 'Your Name',
 	'license' : 'Specify your license',
-	'copyright' : 'Copyright (c) %s by Your Company' % str(date.today().year),
+	'copyright' : 'Copyright (c) 2010 by Your Company',
 }
 module_license_default = "TODO: place your license here and we'll include it in the module distribution"
 
@@ -103,8 +101,8 @@ def warn(msg):
 	print "[WARN] %s" % msg	
 
 def validate_license():
-	c = open(os.path.join(cwd,'LICENSE')).read()
-	if c.find(module_license_default)!=1:
+	c = open('LICENSE').read()
+	if c.find(module_license_default)!=-1:
 		warn('please update the LICENSE file with your license text before distributing')
 			
 def validate_manifest():
@@ -181,7 +179,7 @@ def package_module(manifest,mf,config):
 			for file, html in doc.iteritems():
 				filename = string.replace(file,'.md','.html')
 				zf.writestr('%s/documentation/%s'%(modulepath,filename),html)
-	for dn in ('assets','example','platform'):
+	for dn in ('assets','example'):
 	  if os.path.exists(dn):
 		  zip_dir(zf,dn,'%s/%s' % (modulepath,dn),['README'])
 	zf.write('LICENSE','%s/LICENSE' % modulepath)
@@ -197,4 +195,3 @@ if __name__ == '__main__':
 	build_module(manifest,config)
 	package_module(manifest,mf,config)
 	sys.exit(0)
-
