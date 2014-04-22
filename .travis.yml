@@ -1,0 +1,35 @@
+language: objective-c
+env:
+ global:
+   - "ARTIFACTS_AWS_REGION=us-east-1"
+   - "ARTIFACTS_S3_BUCKET=builds.appcelerator.com"
+   - secure: "ChYm8RElHP0XeKWXxNP9xETNacKwIUfSs/F4nfqK+w9sdlfOcfqbCulRfEM4qKBfMUGiVkZ7kw0baIk/uMdO5uXk067Li2wiEFv+saTdF/pG8vv64Mb4JUt8HygxQdSfK4wlVVKetx5hh2KZ1Dkshf0ataNueQ74SGPC4dQF+wU="
+   - secure: "XgLBaiaLXJt+sVjJt06cs5lFa8adasKvh8Bfehr9zybfchVvzAc/gVh9BvBg0yxv/qVYo7NUGKiVg6eItrCMdBpqJwizPTHkKhv5+JciXS8KPstPy8ybatzSosAbAADpJTrqDRa1qoMlVGjdnti4jkaYQWWkLtvtaxm9nIK7I0E="
+   - "MODULE_NAME=ti.styledlabel"
+before_install:
+    - MODULE_ROOT=$PWD
+    - "gem install travis-artifacts"
+install:
+    - cd $MODULE_ROOT
+    - curl -o install.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/install.sh
+    - source install.sh
+    
+before_script:
+    - cd $MODULE_ROOT
+script: 
+    - if [ -d "$MODULE_ROOT/ios/" ]; then
+    -   cd $MODULE_ROOT/ios/
+    -   ./build.py
+    - fi
+
+    - if [ -d "$MODULE_ROOT/android/" ]; then
+    -   cd $MODULE_ROOT/android/
+    -   cp $MODULE_ROOT/build.properties build.properties
+    -   ant clean
+    -   ant
+    - fi
+after_failure: # this will of course run only on failure
+  - "travis-artifacts upload --path debug/debug.log"
+after_success: # and this only on success
+  - curl -o deploy.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/deploy.sh
+  - source deploy.sh
