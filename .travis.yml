@@ -8,28 +8,13 @@ env:
    - "MODULE_NAME=ti.styledlabel"
 before_install:
     - MODULE_ROOT=$PWD
-    - "gem install travis-artifacts"
 install:
     - cd $MODULE_ROOT
     - curl -o install.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/install.sh
     - source install.sh
-    
-before_script:
-    - cd $MODULE_ROOT
 script: 
-    - if [ -d "$MODULE_ROOT/ios/" ]; then
-    -   cd $MODULE_ROOT/ios/
-    -   ./build.py
-    - fi
-
-    - if [ -d "$MODULE_ROOT/android/" ]; then
-    -   cd $MODULE_ROOT/android/
-    -   cp $MODULE_ROOT/build.properties build.properties
-    -   ant clean
-    -   ant
-    - fi
-after_failure: # this will of course run only on failure
-  - "travis-artifacts upload --path debug/debug.log"
+    - curl -o script.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/script.sh
+    - source script.sh
 after_success: # and this only on success
   - curl -o deploy.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/deploy.sh
   - source deploy.sh
