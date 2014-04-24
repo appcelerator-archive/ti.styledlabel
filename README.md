@@ -1,4 +1,4 @@
-# Titanium StyleLabel Module [![Build Status](https://travis-ci.org/appcelerator-modules/ti.styledlabel.png)](https://travis-ci.org/appcelerator-modules/ti.styledlabel)
+# Titanium StyledLabel Module [![Build Status](https://travis-ci.org/appcelerator-modules/ti.styledlabel.png)](https://travis-ci.org/appcelerator-modules/ti.styledlabel)
 
 This is the StyledLabel Module for Titanium.
 
