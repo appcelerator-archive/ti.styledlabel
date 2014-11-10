@@ -1,5 +1,7 @@
 # Change Log
 <pre>
+v1.6.0  TIMOB-17928 Updated to build for 64-bit
+
 v1.5.4  Fixed click event not firing for non-HTTP links [MOD-1076]
 	
 v1.5.3  Move to open source repo and build with 2.1.3.GA [MOD-944]

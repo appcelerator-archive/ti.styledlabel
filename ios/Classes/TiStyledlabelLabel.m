@@ -42,7 +42,7 @@
         UIView *v = [[_web subviews] lastObject];
         if([v isKindOfClass:[UIScrollView class]])
         {
-            [v setScrollEnabled:NO];
+            [(UIScrollView*)v setScrollEnabled:NO];
         }
         _web.delegate = self;
         [self addSubview:_web];
