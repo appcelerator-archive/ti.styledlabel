@@ -26,6 +26,16 @@ import android.widget.TextView;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Spanned;
+import android.util.Log;
+
+import android.content.Context;
+import android.app.Activity;
+import android.graphics.Typeface;
+import android.content.res.AssetManager;
+import java.lang.String;
+import java.io.IOException;
+import android.util.TypedValue;
+import java.lang.RuntimeException;
 
 public class Label extends TiUIView {
 
@@ -49,6 +59,33 @@ public class Label extends TiUIView {
 	@Override
 	public void processProperties(KrollDict props) {
 		super.processProperties(props);
+		TiApplication appContext = TiApplication.getInstance();
+		Activity activity = appContext.getCurrentActivity();
+		TextView textView = (TextView) getNativeView();
+		Context mContext=activity.getApplicationContext();
+		if (props.containsKey("font")) {
+			KrollDict props2 = props.getKrollDict("font");
+			if (props2.containsKey("fontFamily")) {
+				try {
+					Typeface tf = Typeface.createFromAsset(mContext.getAssets(), "Resources/fonts/" + props2.getString("fontFamily") + ".ttf");
+					textView.setTypeface(tf);
+				} catch (RuntimeException e) {
+
+				}
+				try {
+					Typeface tf = Typeface.createFromAsset(mContext.getAssets(), "Resources/fonts/" + props2.getString("fontFamily") + ".otf");
+					textView.setTypeface(tf);
+				} catch (RuntimeException e) {
+
+				}
+			}
+			if (props2.containsKey("fontSize")) {
+				textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, props2.getInt("fontSize"));
+			}
+		}
+		if (props.containsKey("color")) {
+			textView.setTextColor(Color.parseColor(props.getString("color")));
+		}
 		if (props.containsKey("html")) {
 			setHtml(props.getString("html"));
 		}

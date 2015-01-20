@@ -9,6 +9,7 @@ package ti.styledlabel;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.proxy.TiViewProxy;
 import org.appcelerator.titanium.view.TiUIView;
+import android.util.Log;
 
 import android.app.Activity;
 
