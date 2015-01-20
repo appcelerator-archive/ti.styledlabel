@@ -22,6 +22,27 @@ function linkClickListener(evt) {
     }
 }
 
+var customFontLabel = StyledLabel.createLabel({
+    html: '<h1>StyledLabel With Melissa</h1>',
+    font: { fontFamily: 'Melissa', fontSize: 20}
+});
+
+scroll.add(customFontLabel);
+
+var redLabel = StyledLabel.createLabel({
+    html: '<h2>This is RED</h2>',
+    color: 'red'
+});
+
+scroll.add(redLabel);
+
+var greenLabel = StyledLabel.createLabel({
+    html: '<h2>This is GREEN</h2>',
+    color: 'green'
+});
+
+scroll.add(greenLabel);
+
 /**
  * This is the first example. It loads some HTML from a file, sticks it in
  * the "html" property of our label, and shows it to the user. It also shows
