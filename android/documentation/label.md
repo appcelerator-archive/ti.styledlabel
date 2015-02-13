@@ -4,8 +4,6 @@
 
 Displays html and css.
 
-## Functions
-
 ## Properties
 
 ### filteredTags
@@ -22,6 +20,23 @@ Set this property to one of the two constants:
 
 * Ti.StyledLabel.INCLUDE_SPECIFIED_TAGS_ONLY
 * Ti.StyledLabel.EXCLUDE_SPECIFIED_TAGS
+
+### font
+
+Custom font of the label text. The font should be stored project's **Resources/fonts/** directory.
+
+#### Example
+
+	font: { 
+		fontSize: 24,
+		fontFamily: myFontName
+	}
+
+### color
+	
+Color of the label text, as a color name or hex triplet.
+
+For information about color values, see the "Colors" section of [Titanium.UI](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI). 
 
 ### html
 
