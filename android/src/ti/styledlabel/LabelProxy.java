@@ -23,7 +23,9 @@ public class LabelProxy extends TiViewProxy {
 
 	@Override
 	public TiUIView createView(Activity activity) {
-		return new Label(this);
+		Label label=new Label(this);
+		label.getNativeView().setClickable(false);
+		return label;
 	}
 
 	@Override
