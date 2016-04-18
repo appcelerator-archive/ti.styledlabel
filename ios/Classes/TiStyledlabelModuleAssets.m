@@ -3,12 +3,21 @@
  */
 #import "TiStyledlabelModuleAssets.h"
 
-extern NSData * dataWithHexString (NSString * hexString);
+extern NSData* filterDataInRange(NSData* thedata, NSRange range);
 
 @implementation TiStyledlabelModuleAssets
 
 - (NSData*) moduleAsset
 {
+	
+
+	return nil;
+}
+
+- (NSData*) resolveModuleAsset:(NSString*)path
+{
+	
+
 	return nil;
 }
 

@@ -17,14 +17,7 @@
 
 @implementation TiStyledlabelLabel
 
-#pragma mark -
-#pragma mark Initialization and Memory Management
-
-- (id)init {
-	if ((self = [super init])) {
-	}
-	return self;
-}
+#pragma mark - Initialization and Memory Management
 
 -(void)dealloc
 {
@@ -33,20 +26,20 @@
 	[super dealloc];
 }
 
-#pragma mark -
-#pragma mark View management
+#pragma mark - View management
 
 -(UIWebView*)web {
     if (!_web) {
-        _web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 1)];
+        _web = [[UIWebView alloc] initWithFrame:[self bounds]];
         [_web setBackgroundColor:[UIColor clearColor]];
         [_web setOpaque:NO];
+        [_web setDelegate:self];
+
         UIView *v = [[_web subviews] lastObject];
-        if([v isKindOfClass:[UIScrollView class]])
-        {
+        if([v isKindOfClass:[UIScrollView class]]) {
             [(UIScrollView*)v setScrollEnabled:NO];
         }
-        _web.delegate = self;
+
         [self addSubview:_web];
     }
     return _web;
@@ -56,7 +49,6 @@
 {
     [self web];
 }
-
 
 -(void)frameSizeChanged:(CGRect)frame bounds:(CGRect)bounds
 {
@@ -77,9 +69,7 @@
 	return value;
 }
 
-
-#pragma mark -
-#pragma mark Public APIs
+#pragma mark - Public APIs
 
 -(float)currentContentHeight
 {
@@ -102,8 +92,7 @@
     [[self web] loadHTMLString:_html baseURL:nil];
 }
 
-#pragma mark -
-#pragma mark Delegate
+#pragma mark - Delegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
@@ -123,18 +112,6 @@
                                                [url absoluteString], @"url",
                                                nil]];
     return NO;
-}
-
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
 }
 
 @end
