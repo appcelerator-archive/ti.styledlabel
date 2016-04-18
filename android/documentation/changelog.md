@@ -1,5 +1,7 @@
 # Change Log
 <pre>
+v2.0.3  [MOD-1904] Changes createView method in LabelProxy.java to make the label unclickable (Resolves :Click event fires twice)
+
 v2.0.1  [MOD-944] Move to open source repo and build with 2.1.3.GA
 	
 v2.0    Upgraded to module api version 2 for 1.8.0.1
