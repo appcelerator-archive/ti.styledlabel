@@ -44,6 +44,9 @@
         {
             [(UIScrollView*)v setScrollEnabled:NO];
         }
+        // make background transparent
+        [_web setBackgroundColor:[UIColor clearColor]];
+        [_web setOpaque:NO];
         _web.delegate = self;
         [self addSubview:_web];
     }
