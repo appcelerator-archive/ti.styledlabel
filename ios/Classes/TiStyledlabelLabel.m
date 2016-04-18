@@ -39,6 +39,8 @@
 -(UIWebView*)web {
     if (!_web) {
         _web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 1)];
+        [_web setBackgroundColor:[UIColor clearColor]];
+        [_web setOpaque:NO];
         UIView *v = [[_web subviews] lastObject];
         if([v isKindOfClass:[UIScrollView class]])
         {
