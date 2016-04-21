@@ -498,48 +498,45 @@ public class HtmlToSpannedConverter implements ContentHandler {
 
 	private void startImg(Attributes attributes) {
 		String src = attributes.getValue("", "src");
-		String width= attributes.getValue("", "width");
-		String height= attributes.getValue("", "height");
+		String width = attributes.getValue("", "width");
+		String height = attributes.getValue("", "height");
 		Drawable d = null;
 
 		if (mImageGetter != null) {
 			d = mImageGetter.getDrawable(src);
 		}
 
-		
 		if (d == null) {
-			mSB.setSpan(new BackgroundColorSpan(0), mSB.length(), mSB.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+			mSB.setSpan(new BackgroundColorSpan(0), mSB.length(), mSB.length(),
+					Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 			return;
-		}
-		else{
-			int weidthInAttributes=d.getIntrinsicWidth();
-			int heightInAttributes=d.getIntrinsicHeight();
-			if(width!=null){
-				try{
-					weidthInAttributes=Integer.parseInt(width);
-				}
-				catch(NumberFormatException nfe){
+		} else {
+			int widthInAttributes = d.getIntrinsicWidth();
+			int heightInAttributes = d.getIntrinsicHeight();
+			if (width != null) {
+				try {
+					widthInAttributes = Integer.parseInt(width);
+				} catch (NumberFormatException nfe) {
 					Util.e("NumberFormatException on width attribute");
 				}
 			}
-			if(height!=null){
-				try{
-					heightInAttributes=Integer.parseInt(height);
-				}
-				catch(NumberFormatException nfe){
+			if (height != null) {
+				try {
+					heightInAttributes = Integer.parseInt(height);
+				} catch (NumberFormatException nfe) {
 					Util.e("NumberFormatException on height attribute");
 				}
 			}
-			d.setBounds(0,0,weidthInAttributes,heightInAttributes);
+			d.setBounds(0, 0, widthInAttributes, heightInAttributes);
 		}
-		
-		
 
 		int len = mSB.length();
 		mSB.append("\uFFFC");
 
-		mSB.setSpan(new ImageSpan(d, src), len, mSB.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		mSB.setSpan(new ImageSpan(d, src), len, mSB.length(),
+				Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 	}
+
 
 	private void endFont(TagMarker tm) {
 		int end = mSB.length();
