@@ -1,6 +1,6 @@
 # Titanium StyledLabel Module [![Build Status](https://travis-ci.org/appcelerator-modules/ti.styledlabel.svg)](https://travis-ci.org/appcelerator-modules/ti.styledlabel)
 
-> **NOTE**: This module should has been archived in favor of [Ti.UI.AttributedString](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI.AttributedString) which allows native label-styling in iOS and Android with improved performance.
+> **NOTE**: This module has been archived in favor of [Ti.UI.AttributedString](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI.AttributedString) which allows native label-styling in iOS and Android with improved performance.
 
 This is the StyledLabel Module for Titanium.
 
